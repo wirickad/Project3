@@ -1,0 +1,32 @@
+<!--If the user clicks on the Add button, then it should use the addVehicle route and take the user
+    to the addVehicle.ejs file. When the user clicks on the Save button it should submit the new record
+    and add it to the table and then redirect to the display vehicle
+    page showing all the records in the table.-->
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Update Vehicle</title>
+    </head>
+    <body>
+        <h1>Update Vehicle</h1>
+        <form method="post" action="editItem">
+            
+            <input type="hidden"
+                 value="<%= theMenu[0].itemID%>" name="itemID">
+            <label for="itemName">Item Name: </label>
+            <input type="text" id="itemName" name="itemName" 
+                value="<%= theMenu[0].itemName%>">
+            <br>
+            <label for="itemPrice">Item Price: </label>
+            <input type="text" id="itemPrice" name="itemPrice"
+                value="<%= theMenu[0].itemPrice%>">
+    
+            <br><br>
+            <button type="submit">Save Changes</button>
+        </form>
+    </body>
+    </html>

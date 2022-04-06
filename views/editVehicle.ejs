@@ -1,0 +1,38 @@
+<!--The data will be displayed as:
+description – text
+type – radio button group with default of "C" for new records ("C - Car, T - Truck, B - Bike, M - Motorcycle")
+year – number with min of 1950 and no max
+mileage - number (Do not allow editing for the Bike)
+still_using – radio button with default of' "Y" on new records ("Y or N")
+Allow the user to change the data. There should be a Save and Cancel button on this page. 
+If the user clicks on the Save button, then the data should be saved back to the record updating the fields.
+If the user clicks on the Cancel button, then it should redirect back to the home back and display the records from the vehicle table.
+ This should happen on the Save also.-->
+
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+     <meta charset="UTF-8">
+     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Update Menu Item</title>
+ </head>
+ <body>
+     <h1>Update Menu Item</h1>
+     <form method="post" action="editItem">
+         
+         <input type="hidden"
+              value="<%= theMenu[0].itemID%>" name="itemID">
+         <label for="itemName">Item Name: </label>
+         <input type="text" id="itemName" name="itemName" 
+             value="<%= theMenu[0].itemName%>">
+         <br>
+         <label for="itemPrice">Item Price: </label>
+         <input type="text" id="itemPrice" name="itemPrice"
+             value="<%= theMenu[0].itemPrice%>">
+ 
+         <br><br>
+         <button type="submit">Save Changes</button>
+     </form>
+ </body>
+ </html>
