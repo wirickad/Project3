@@ -23,18 +23,18 @@ The edit button should use the editVehicle route and pass the data from the reco
     <div class="topnav">
 
         <!--Nav Item-->
-        <div class="topnav item" href="/additem">
-            <a href="/additem">Add Vehicle</a>
+        <div class="topnav item" href="/addVehicle">
+            <a href="/addVehicle">Add Vehicle</a>
         </div>
 
         <!--Nav Item-->
-        <div class="topnav item" href="/additem">
-            <a href="/additem">Add Item</a>
+        <div class="topnav item" href="/addVehicle">
+            <a href="/addVehicle">Add Item</a>
         </div>
 
         <!--Nav Item-->
         <div class="topnav item">
-            <a href="/additem">Add Item</a>
+            <a href="/addVehicle">Add Item</a>
         </div>
 
     </div>
@@ -75,7 +75,7 @@ The edit button should use the editVehicle route and pass the data from the reco
                             <%= myInventory[i].vStillUsing %>
                         </td>
                         <td>
-                            <a href="/deleteVehicle/'<%myInventory[i].vehicle_id%>'"><img class="icon" src="pencil.png"></img></a>
+                            <a href="/editVehicle/'<%myInventory[i].vehicle_id%>'"><img class="icon" src="pencil.png"></img></a>
                         </td>
                         <% } %>
                     </tr>

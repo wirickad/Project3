@@ -1,82 +1,99 @@
-const listenPort = 3000; //use port 3000 to host my server
+// Group Project 3
+// IS 303 - Winter 2022
+// Alex Wirick, Barrett Banfield, Quinn Karpowitz
+
+const listenPort = 3000; //use port 3000
+
+//require modules
 let express = require("express");
-const res = require("express/lib/response");
 let path = require("path");
 let app = express(); //set app equal to express
-app.set("view engine","ejs");//set is a method for the express object, here we set the view engine to ejs
+
+//config express
+app.set("view engine", "ejs");
 app.use(express.static('images'));
 app.use(express.urlencoded({extended: true}));
 
-app.listen(listenPort, function() //Here I tell express which port to listen to
-    {console.log("Listener active on port" + //this displays a console message letting me know it is listening
-    listenPort); });
+//Activate listener port
+app.listen(listenPort, function() 
+    {console.log(`Listener active on port: ${listenPort}`); 
+});
 
+//setup knex
 let knex = require("knex")({
     client: "pg",
     connection: {
         host: "localhost",
-        server: "PostgreSQL 13",
+        server: "PostgreSQL 14",
         user: "postgres",
-        password: "R1c0chet",
-        database: "postgres",
+        password: "Admin",
+        database: "Inclasswork",
         port: 5432
     },
     useNullAsDefault: true
 });  
-    
-app.get("/",(req,res)=>
-    {res.render("/index");
+
+//Route to index
+app.get("/", (req,res) => {
+    res.render("index");
 });
 
+//Route to vehicledb
 app.get("/vehicledb",(req,res) => {
     knex('Vehicle').orderBy('vehicle_id')
     .then(inventoryInfo => {
-        console.log(inventoryInfo);
         res.render("displayVehicle",{myInventory: inventoryInfo});
     }).catch(err => {
         console.log(err);
         res.status(500).json({err}); 
-    });    
+    });
 });
 
-//app.get("/addVehicle",(req,res) => { 
-    //res.render("addVehicle");
-//});
+//get and post for adding a vehicle
+app.get("/addVehicle",(req,res) => { 
+    res.render("addVehicle");
+});
 
-/*app.post("/addVehicle", (req,res) => {
+app.post("/addVehicle", (req,res) => {
     knex("Vehicle").insert({
-        itemName:req.body.itemName,
-        itemPrice:req.body.itemPrice
+        vDescription:req.body.vDescription,
+        vType:req.body.vType,
+        vYear:req.body.vYear,
+        vMilage:req.body.vMilage,
+        vStillusing:req.body.vStillusing
     }).then( () => {
         res.redirect("/vehicledb");
     });
-});*/
+});
 
-/*app.get("/deleteItem/:itemID", (req,res) => {       //the /:itemId grabs the item ID from the page so it knows which item to delete from the db
-    knex('Menu').where('itemID', req.params.itemID).del()
+//Route for deleting vehicles from db
+app.get("/deleteVehicle/:vehicle_id", (req,res) => {      
+    knex('Vehicle').where('vehicle_id', req.params.vehicle_id).del()
     .then ( () =>{
-    res.redirect("/menulistdb");
+    res.redirect("/vehicledb");
     })
-});*/
+});
 
-/*app.get("/editItem/:itemID",(req,res) => {
-    knex('Menu').where('itemID', req.params.itemID)
-    .then (menuInfo => {
-        res.render("edititem",{theMenu: menuInfo});
+//get and post for editing vehicles
+app.get("/editVehicle/:vehicle_id",(req,res) => {
+    knex('Vehicle').where('vehicle_id', req.params.vehicle_id)
+    .then (inventoryInfo => {
+        res.render("edititem",{myInventory: inventoryInfo});
     }).catch(err => {
         console.log(err);
         res.status(500).json({err});
     })
-});*/
+});
 
-/*app.post("/editItem", (req,res) => {
-    knex("Menu").where('itemID', req.body.itemID)
+app.post("/editVehicle", (req,res) => {
+    knex("Vehicle").where('vehicle_id', req.body.vehicle_id)
         .update({
-        itemName:req.body.itemName,
-        itemPrice:req.body.itemPrice
+        vDescription:req.body.vDescription,
+        vType:req.body.vType,
+        vYear:req.body.vYear,
+        vMilage:req.body.vMilage,
+        vStillusing:req.body.vStillusing
     }).then( () => {
-        res.redirect("/menulistdb");
+        res.redirect("/vehicledb");
     });
-})*/
-
-
+})
