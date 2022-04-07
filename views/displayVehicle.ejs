@@ -54,7 +54,7 @@ The edit button should use the editVehicle route and pass the data from the reco
                 <% for(let i=0;i<myInventory.length;i++) { %>
                     <tr>
                         <td>
-                            <a href="/deleteVehicle/'<%myInventory[i].vehicle_id%>'"><img class="icon" src="trash.png"></img></a>
+                            <a href="/deleteVehicle/<%=myInventory[i].vehicle_id%>"><img class="icon" src="trash.png"></img></a>
                         </td>
                         <td>
                             <%= myInventory[i].vehicle_id %>
@@ -75,7 +75,7 @@ The edit button should use the editVehicle route and pass the data from the reco
                             <%= myInventory[i].vStillUsing %>
                         </td>
                         <td>
-                            <a href="/editVehicle/'<%myInventory[i].vehicle_id%>'"><img class="icon" src="pencil.png"></img></a>
+                            <a href="/editVehicle/<%=myInventory[i].vehicle_id%>"><img class="icon" src="pencil.png"></img></a>
                         </td>
                         <% } %>
                     </tr>

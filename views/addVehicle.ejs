@@ -15,14 +15,33 @@
         <h1>Add Vehicle</h1>
         <form method="post" action="addVehicle">
             
+            <fieldset><legend>Model</legend>
             <label for="vDescription">Description: </label>
             <input type="text" id="vDescription" name="vDescription">
-            <br>
-            <label for="vType">Type: </label>
-            <input type="text" id="vType" name="vType">
-            <br>
+            <label for="vYear">Year: </label>
+            <input type="text" id="vYear" name="vYear">
+            <label for="vMilage">Milage: </label>
+            <input type="text" id="vMilage" name="vMilage">
+            </fieldset>
 
-    
+            <fieldset><legend>Type: </legend>
+            <input type="radio" id="vType" name="vType" value="C">
+            <label for="vType">Car</label>
+            <input type="radio" id="vType" name="vType" value="T">
+            <label for="vType">Truck</label>
+            <input type="radio" id="vType" name="vType" value="B">
+            <label for="vType">Bike</label>
+            <input type="radio" id="vType" name="vType" value="M">
+            <label for="vType">Motorcycle</label>
+            </fieldset>
+
+            <fieldset><legend>Still in Use?</legend>
+            <input type="radio" id="vStillUsing" name="vStillUsing" value="Y">
+            <label for="vStillUsing">Yes</label>
+            <input type="radio" id="vStillUsing" name="vStillUsing" value="N">
+            <label for="vStillUsing">No</label>
+            </fieldset>
+            <br>
             <br><br>
             <button type="submit">Save Changes</button>
         </form>

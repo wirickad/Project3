@@ -55,12 +55,13 @@ app.get("/addVehicle",(req,res) => {
 });
 
 app.post("/addVehicle", (req,res) => {
+    console.log(req.body);
     knex("Vehicle").insert({
         vDescription:req.body.vDescription,
         vType:req.body.vType,
         vYear:req.body.vYear,
         vMilage:req.body.vMilage,
-        vStillusing:req.body.vStillusing
+        vStillUsing:req.body.vStillUsing
     }).then( () => {
         res.redirect("/vehicledb");
     });
@@ -70,7 +71,7 @@ app.post("/addVehicle", (req,res) => {
 app.get("/deleteVehicle/:vehicle_id", (req,res) => {      
     knex('Vehicle').where('vehicle_id', req.params.vehicle_id).del()
     .then ( () =>{
-    res.redirect("/vehicledb");
+        res.redirect("/vehicledb");
     })
 });
 
@@ -78,7 +79,7 @@ app.get("/deleteVehicle/:vehicle_id", (req,res) => {
 app.get("/editVehicle/:vehicle_id",(req,res) => {
     knex('Vehicle').where('vehicle_id', req.params.vehicle_id)
     .then (inventoryInfo => {
-        res.render("edititem",{myInventory: inventoryInfo});
+        res.render("editVehicle",{myInventory: inventoryInfo});
     }).catch(err => {
         console.log(err);
         res.status(500).json({err});
@@ -86,14 +87,14 @@ app.get("/editVehicle/:vehicle_id",(req,res) => {
 });
 
 app.post("/editVehicle", (req,res) => {
-    knex("Vehicle").where('vehicle_id', req.body.vehicle_id)
-        .update({
+    console.log(req.body);
+    knex("Vehicle").update({
         vDescription:req.body.vDescription,
         vType:req.body.vType,
         vYear:req.body.vYear,
         vMilage:req.body.vMilage,
-        vStillusing:req.body.vStillusing
-    }).then( () => {
+        vStillUsing:req.body.vStillUsing
+    }).where({'vehicle_id': parseInt(req.body.vehicle_id)}).then( () => {
         res.redirect("/vehicledb");
     });
 })
