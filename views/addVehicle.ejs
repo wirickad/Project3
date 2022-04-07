@@ -9,21 +9,19 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Update Vehicle</title>
+        <title>Add Vehicle</title>
     </head>
     <body>
-        <h1>Update Vehicle</h1>
-        <form method="post" action="editItem">
+        <h1>Add Vehicle</h1>
+        <form method="post" action="addVehicle">
             
-            <input type="hidden"
-                 value="<%= theMenu[0].itemID%>" name="itemID">
-            <label for="itemName">Item Name: </label>
-            <input type="text" id="itemName" name="itemName" 
-                value="<%= theMenu[0].itemName%>">
+            <label for="vDescription">Description: </label>
+            <input type="text" id="vDescription" name="vDescription">
             <br>
-            <label for="itemPrice">Item Price: </label>
-            <input type="text" id="itemPrice" name="itemPrice"
-                value="<%= theMenu[0].itemPrice%>">
+            <label for="vType">Type: </label>
+            <input type="text" id="vType" name="vType">
+            <br>
+
     
             <br><br>
             <button type="submit">Save Changes</button>
