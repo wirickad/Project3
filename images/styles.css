@@ -13,6 +13,11 @@
     display: flex;
   }
 
+.flex-container main{
+  display: flex;
+  height: 80%;
+}
+
 /*Flex Div */
 .flex-container div {
 background-color: #f1f1f1;
@@ -22,17 +27,22 @@ font-size: 30px;
 }
 
 .flex-container  table {
+  display: flex;
     text-align: center;
 }
 
 .customTable{
     border-spacing: 25px;
     font-size:large;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px;  
 }
 
 /*Page Layout*/
 .header{
-    text-align: center;
+    text-align: center;  
 }
 
 /* Navbar container */
@@ -71,8 +81,8 @@ font-size: 30px;
   }
 
 .column {
-    float: left;
     width: 100%;
+    height: 680px;
   }
   
   /* Left and right column */
@@ -94,9 +104,13 @@ font-size: 30px;
   }
 
 .footer{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
     background-color: #F1F1F1;
-    text-align: center;
     padding: 10px;
+    height:50px;
+    text-align: center;
   }
 /*end of layout*/
 
@@ -114,8 +128,28 @@ font-size: 30px;
 
 .customButton{
   display: flex;
+  font: bold 15px Arial;
   padding: 10px;
   border: 1px;
   border-style: solid;
   background-color: rgb(204, 204, 204);
+}
+
+
+.cancelbutton {
+  width: fit-content;
+  display: flex;
+  font: bold 15px Arial;
+  text-decoration: none;
+  background-color: rgb(204, 204, 204);
+  color: #333333;
+  border: 1px;
+  border-style: solid;
+  padding: 10px 22px 10px 22px;
+  margin-top: 15px;
+}
+
+.subhead{
+  text-align: center;
+  margin-bottom: 0px;
 }
