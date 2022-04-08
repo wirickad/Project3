@@ -24,10 +24,10 @@ let knex = require("knex")({
     client: "pg",
     connection: {
         host: "localhost",
-        server: "PostgreSQL 14",
+        server: "PostgreSQL 13",
         user: "postgres",
-        password: "Admin",
-        database: "Inclasswork",
+        password: "R1c0chet",
+        database: "postgres",
         port: 5432
     },
     useNullAsDefault: true
