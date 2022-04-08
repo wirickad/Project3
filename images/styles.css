@@ -99,3 +99,13 @@ font-size: 30px;
   }
 /*end of layout*/
 
+.customForm {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.column.side.invisible {
+  opacity: 0%;
+  visibility: hidden;
+}

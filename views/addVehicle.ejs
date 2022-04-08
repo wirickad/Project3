@@ -9,22 +9,62 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="styles.css">
         <title>Add Vehicle</title>
     </head>
     <body>
-        <h1>Add Vehicle</h1>
-        <form method="post" action="addVehicle">
-            
-            <label for="vDescription">Description: </label>
-            <input type="text" id="vDescription" name="vDescription">
-            <br>
-            <label for="vType">Type: </label>
-            <input type="text" id="vType" name="vType">
-            <br>
+        <!--Header-->
+        <div class="header">
+            <h1>Add Vehicle</h1>
+        </div>
 
+        <!--Top Nav-->
+        <div class="topnav">
+
+            <!--Nav Item-->
+            <div class="topnav item" href="/addVehicle">
+                <a href="/addVehicle">Add Vehicle</a>
+            </div>
+
+            <!--Nav Item-->
+            <div class="topnav item" href="/addVehicle">
+                <a href="/addVehicle">Add Item</a>
+            </div>
+
+            <!--Nav Item-->
+            <div class="topnav item">
+                <a href="/addVehicle">Add Item</a>
+            </div>
+
+        </div>
+
+        <!--Main Content-->
+        <div class="flex-container">
+
+            <!--Left Column-->
+            <div class="column side invisible">
+                
+            </div>
+        
+            <div class="column middle">
+                <form method="post" action="addVehicle" class="customForm">
+                <h4>Vehicle Information:</h4>
+                <label for="vDescription">Description: </label>
+                <input type="text" id="vDescription" name="vDescription">
+                <br>
+                <label for="vType">Type: </label>
+                <input type="text" id="vType" name="vType">
+                <br>
+                <label for="vYear">Year: </label>
+                <input type="text" id="vYear" name="vYear">
+                <br>
+                <label for="vMileage">Mileage: </label>
+                <input type="text" id="vMileage" name="vMileage">
+                <br><br>
+                <button type="submit">Save Changes</button>
+                </form>
+            </div>
+        </div>
     
-            <br><br>
-            <button type="submit">Save Changes</button>
-        </form>
     </body>
     </html>
