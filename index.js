@@ -20,19 +20,18 @@ app.listen(listenPort, function()
 });
 
 //setup knex
-const knex = require(path.join(__dirname + '/knex/knex.js'));     
-// let knex = require("knex")({
-//     client: "pg",
-//     connection: {
-//         host: "localhost",
-//         server: "PostgreSQL 14",
-//         user: "postgres",
-//         password: "Admin",
-//         database: "Inclasswork",
-//         port: 5432
-//     },
-//     useNullAsDefault: true
-// });  
+// const knex = require(path.join(__dirname + '/knex/knex.js'));     
+let knex = require("knex")({
+    client: "pg",
+    connection: {
+        host : 'dpg-c97mlej97ej8dpgdpfm0-a.oregon-postgres.render.com',
+        user : 'project3_user',
+        password : 'BBnuRPL9b6PHO6UoY0eQw1YMdc8kz1u0',
+        database : 'project3',
+        port: 5432
+    },
+    useNullAsDefault: true
+});  
 
 //Route to index
 app.get("/", (req,res) => {
