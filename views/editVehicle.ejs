@@ -1,56 +1,66 @@
-<!--The data will be displayed as:
-description – text
-type – radio button group with default of "C" for new records ("C - Car, T - Truck, B - Bike, M - Motorcycle")
-year – number with min of 1950 and no max
-mileage - number (Do not allow editing for the Bike)
-still_using – radio button with default of' "Y" on new records ("Y or N")
-Allow the user to change the data. There should be a Save and Cancel button on this page. 
-If the user clicks on the Save button, then the data should be saved back to the record updating the fields.
-If the user clicks on the Cancel button, then it should redirect back to the home back and display the records from the vehicle table.
- This should happen on the Save also.-->
-
  <!DOCTYPE html>
  <html lang="en">
  <head>
      <meta charset="UTF-8">
      <meta http-equiv="X-UA-Compatible" content="IE=edge">
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <link href="styles.css"  type="text/css">
      <title>Update Vehicle</title>
  </head>
+
  <body>
-     <h1>Update Vehicle</h1>
+     <!--Header-->
+    <div class="header">
+        <h1>Edit Vehicle</h1>
+    </div>
+
+     <!--Top Nav-->
+     <div class="topnav">
+      
+        <!--Nav Item-->
+        <div class="topnav item">
+            <a href="/vehicledb">Inventory</a>
+        </div>
+
+         <!--Nav Item-->
+         <div class="topnav item">
+            <a href="/addVehicle">Add Vehicle</a>
+        </div>
+
+    </div>
      <form method="POST" action="/editVehicle">
         <fieldset>
-        <legend>Edit a Vehicle: </legend>
-        <input type="hidden" id="vehicle_id" name="vehicle_id" value="<%= myInventory[0].vehicle_id %>">
-        <label for="vDescription">Vehicle Description: </label>
-        <input type="text" id="vDescription" name="vDescription" value="<%= myInventory[0].vDescription %>">
-        <br><br>
-        <fieldset>
-            <legend>Vehicle Type: </legend>
-            <input type="radio" id="car" name="vType" value="C" <%= myInventory[0].vType == "C" ? "checked" : "" %>>
-            <label for="car">Car</label>
-            <input type="radio" id="truck" name="vType" value="T" <%= myInventory[0].vType == "T" ? "checked" : "" %>>
-            <label for="truck">Truck</label>
-            <input type="radio" id="bike" name="vType" value="B" <%= myInventory[0].vType == "B" ? "checked" : "" %>>
-            <label for="bike">Bike</label>
-            <input type="radio" id="motorcycle" name="vType" value="M" <%= myInventory[0].vType == "M" ? "checked" : "" %>>
-            <label for="motorcycle">Motorcycle</label>
-        </fieldset>
-        <br><br>
-        <label for="vYear">Year: </label>
-        <input type="number" id="vYear" name="vYear" value="<%= myInventory[0].vYear %>">
-        <br><br>
-        <label for="vMilage">Milage: </label>
-        <input type="number" id="vMilage" name="vMilage" value="<%= myInventory[0].vMilage %>">
-        <br><br>
-        <fieldset>
-            <legend>Sill in Use?: </legend>
-            <input type="radio" id="yes" name="vStillUsing" value="Y" <%= myInventory[0].vStillUsing == "Y" ? "checked" : "" %>>
-            <label for="yes"></label>
-            <input type="radio" id="no" name="vStillUsing" value="N" <%= myInventory[0].vStillUsing == "N" ? "checked" : "" %>>
-            <label for="no"></label>
-        </fieldset>
+            <legend>Edit a Vehicle: </legend>
+            <input type="hidden" id="vehicle_id" name="vehicle_id" value="<%= myInventory[0].vehicle_id %>">
+            <label for="vDescription">Vehicle Description: </label>
+            <input type="text" id="vDescription" name="vDescription" value="<%= myInventory[0].vDescription %>">
+            
+            <br><br>
+            <fieldset>
+                <legend>Vehicle Type: </legend>
+                <input type="radio" id="car" name="vType" value="C" <%= myInventory[0].vType == "C" ? "checked" : "" %>>
+                <label for="car">Car</label>
+                <input type="radio" id="truck" name="vType" value="T" <%= myInventory[0].vType == "T" ? "checked" : "" %>>
+                <label for="truck">Truck</label>
+                <input type="radio" id="bike" name="vType" value="B" <%= myInventory[0].vType == "B" ? "checked" : "" %>>
+                <label for="bike">Bike</label>
+                <input type="radio" id="motorcycle" name="vType" value="M" <%= myInventory[0].vType == "M" ? "checked" : "" %>>
+                <label for="motorcycle">Motorcycle</label>
+            </fieldset>
+            <br><br>
+            <label for="vYear">Year: </label>
+            <input type="number" id="vYear" name="vYear" value="<%= myInventory[0].vYear %>">
+            <br><br>
+            <label for="vMilage">Mileage: </label>
+            <input type="number" id="vMilage" name="vMilage" value="<%= myInventory[0].vMilage %>">
+            <br><br>
+            <fieldset>
+                <legend>Still in Use?: </legend>
+                <input type="radio" id="yes" name="vStillUsing" value="Y" <%= myInventory[0].vStillUsing == "Y" ? "checked" : "" %>>
+                <label for="yes">Yes</label>
+                <input type="radio" id="no" name="vStillUsing" value="N" <%= myInventory[0].vStillUsing == "N" ? "checked" : "" %>>
+                <label for="no">No</label>
+            </fieldset>
         </fieldset>
          <br><br>
          <button type="submit">Save Changes</button>

@@ -72,6 +72,7 @@ font-size: 30px;
 
 .column {
     float: left;
+    width: 100%;
   }
   
   /* Left and right column */
@@ -99,3 +100,22 @@ font-size: 30px;
   }
 /*end of layout*/
 
+.customForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+.column.side.invisible {
+  opacity: 0%;
+  visibility: hidden;
+}
+
+.customButton{
+  display: flex;
+  padding: 10px;
+  border: 1px;
+  border-style: solid;
+  background-color: rgb(204, 204, 204);
+}

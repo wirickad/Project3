@@ -24,10 +24,11 @@ app.listen(listenPort, function()
 let knex = require("knex")({
     client: "pg",
     connection: {
-        host : 'dpg-c97mlej97ej8dpgdpfm0-a.oregon-postgres.render.com',
-        user : 'project3_user',
-        password : 'BBnuRPL9b6PHO6UoY0eQw1YMdc8kz1u0',
-        database : 'project3',
+        host : 'localhost',
+        server : 'PostgreSQL 13',
+        user : 'postgres',
+        password : 'password',
+        database : 'postgres',
         port: 5432
     },
     useNullAsDefault: true
