@@ -2,7 +2,7 @@
 // IS 303 - Winter 2022
 // Alex Wirick, Barrett Banfield, Quinn Karpowitz
 
-const listenPort = 3000; //use port 3000
+const listenPort = process.env.PORT || 3000; //use port 3000
 
 //require modules
 let express = require("express");
@@ -20,18 +20,19 @@ app.listen(listenPort, function()
 });
 
 //setup knex
-let knex = require("knex")({
-    client: "pg",
-    connection: {
-        host: "localhost",
-        server: "PostgreSQL 14",
-        user: "postgres",
-        password: "Admin",
-        database: "Inclasswork",
-        port: 5432
-    },
-    useNullAsDefault: true
-});  
+const knex = require(path.join(__dirname + '/knex/knex.js'));     
+// let knex = require("knex")({
+//     client: "pg",
+//     connection: {
+//         host: "localhost",
+//         server: "PostgreSQL 14",
+//         user: "postgres",
+//         password: "Admin",
+//         database: "Inclasswork",
+//         port: 5432
+//     },
+//     useNullAsDefault: true
+// });  
 
 //Route to index
 app.get("/", (req,res) => {
