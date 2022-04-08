@@ -15,24 +15,46 @@ If the user clicks on the Cancel button, then it should redirect back to the hom
      <meta charset="UTF-8">
      <meta http-equiv="X-UA-Compatible" content="IE=edge">
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <title>Update Menu Item</title>
+     <title>Update Vehicle</title>
  </head>
  <body>
-     <h1>Update Menu Item</h1>
-     <form method="post" action="editItem">
-         
-         <input type="hidden"
-              value="<%= theMenu[0].itemID%>" name="itemID">
-         <label for="itemName">Item Name: </label>
-         <input type="text" id="itemName" name="itemName" 
-             value="<%= theMenu[0].itemName%>">
-         <br>
-         <label for="itemPrice">Item Price: </label>
-         <input type="text" id="itemPrice" name="itemPrice"
-             value="<%= theMenu[0].itemPrice%>">
- 
+     <h1>Update Vehicle</h1>
+     <form method="POST" action="/editVehicle">
+        <fieldset>
+        <legend>Edit a Vehicle: </legend>
+        <input type="hidden" id="vehicle_id" name="vehicle_id" value="<%= myInventory[0].vehicle_id %>">
+        <label for="vDescription">Vehicle Description: </label>
+        <input type="text" id="vDescription" name="vDescription" value="<%= myInventory[0].vDescription %>">
+        <br><br>
+        <fieldset>
+            <legend>Vehicle Type: </legend>
+            <input type="radio" id="car" name="vType" value="C" <%= myInventory[0].vType == "C" ? "checked" : "" %>>
+            <label for="car">Car</label>
+            <input type="radio" id="truck" name="vType" value="T" <%= myInventory[0].vType == "T" ? "checked" : "" %>>
+            <label for="truck">Truck</label>
+            <input type="radio" id="bike" name="vType" value="B" <%= myInventory[0].vType == "B" ? "checked" : "" %>>
+            <label for="bike">Bike</label>
+            <input type="radio" id="motorcycle" name="vType" value="M" <%= myInventory[0].vType == "M" ? "checked" : "" %>>
+            <label for="motorcycle">Motorcycle</label>
+        </fieldset>
+        <br><br>
+        <label for="vYear">Year: </label>
+        <input type="number" id="vYear" name="vYear" value="<%= myInventory[0].vYear %>">
+        <br><br>
+        <label for="vMilage">Milage: </label>
+        <input type="number" id="vMilage" name="vMilage" value="<%= myInventory[0].vMilage %>">
+        <br><br>
+        <fieldset>
+            <legend>Sill in Use?: </legend>
+            <input type="radio" id="yes" name="vStillUsing" value="Y" <%= myInventory[0].vStillUsing == "Y" ? "checked" : "" %>>
+            <label for="yes"></label>
+            <input type="radio" id="no" name="vStillUsing" value="N" <%= myInventory[0].vStillUsing == "N" ? "checked" : "" %>>
+            <label for="no"></label>
+        </fieldset>
+        </fieldset>
          <br><br>
          <button type="submit">Save Changes</button>
+         <a href="/vehicledb">Cancel</a>
      </form>
  </body>
  </html>
