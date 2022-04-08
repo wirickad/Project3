@@ -6,6 +6,7 @@ const listenPort = process.env.PORT || 3000; //use port 3000
 
 //require modules
 let express = require("express");
+// const { Server } = require("http");
 let path = require("path");
 let app = express(); //set app equal to express
 
@@ -28,9 +29,12 @@ let knex = require("knex")({
         user : 'project3_user',
         password : 'BBnuRPL9b6PHO6UoY0eQw1YMdc8kz1u0',
         database : 'project3',
-        port: 5432
+        port: 5432,
+        ssl: true
     },
-    useNullAsDefault: true
+    useNullAsDefault: true,
+    pool: { min: 0, max: 7 }
+    
 });  
 
 //Route to index
