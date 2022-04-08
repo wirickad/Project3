@@ -1,14 +1,50 @@
-<!--This page should have some means of displaying the "displayVehicle.ejs" page 
-    (i.e. button, menu item, image, etc.).-->
+<!--If the user clicks on the Add button, then it should use the addVehicle route and take the user
+    to the addVehicle.ejs file. When the user clicks on the Save button it should submit the new record
+    and add it to the table and then redirect to the display vehicle
+    page showing all the records in the table.-->
+
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    
-</body>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="styles.css">
+        <title>Vehicle Management System</title>
+    </head>
+    <body>
+
+        <!--Header-->
+        <div class="header">
+            <h1>Vehicle Management System</h1>
+        </div>
+
+        <!--Top Nav-->
+        <div class="topnav">
+            <!--Nav Item-->
+            <div class="topnav item">
+                <a href="/">Home</a>
+            </div>
+            <!--Nav Item-->
+            <div class="topnav item">
+                <a href="/vehicledb">Inventory</a>
+            </div>
+                <!--Nav Item-->
+                <div class="topnav item">
+                <a href="/addVehicle">Add Vehicle</a>
+            </div>
+        </div>
+
+        <!--Main Content-->
+        <div class="flex-container">
+            <div class="column">
+                
+            </div>
+        </div>
+        <!--Footer-->
+        <div class="footer">
+            IS303 Project 3 <br>
+            Alex Wirick, Quinn Karpowitz, Barrett Banfield
+        </div>
+    </body>
 </html>

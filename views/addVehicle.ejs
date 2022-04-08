@@ -1,10 +1,6 @@
-<!--If the user clicks on the Add button, then it should use the addVehicle route and take the user
-    to the addVehicle.ejs file. When the user clicks on the Save button it should submit the new record
-    and add it to the table and then redirect to the display vehicle
-    page showing all the records in the table.-->
 
-    <!DOCTYPE html>
-    <html lang="en">
+<!DOCTYPE html>
+<html lang="en">
     <head>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -21,31 +17,37 @@
 
         <!--Top Nav-->
         <div class="topnav">
-      
+            
+            <!--Nav Item-->
+            <div class="topnav item">
+                <a href="/">Home</a>
+            </div>
+
             <!--Nav Item-->
             <div class="topnav item">
                 <a href="/vehicledb">Inventory</a>
             </div>
 
-             <!--Nav Item-->
-             <div class="topnav item">
+                <!--Nav Item-->
+                <div class="topnav item">
                 <a href="/addVehicle">Add Vehicle</a>
             </div>
 
         </div>
 
         <!--Main Content-->
-        <div class="flex-container">
-
-        
-            <!--Main Content-->
+        <div class="flex-container main">  
             <div class="column">
+                <h3 class="subhead">Add a Vehicle</h3>
+                <br>
                 <form method="post" action="addVehicle" class="customForm">           
-                    <fieldset class="customForm"><legend>Model:</legend>
+                    <fieldset><legend>Model:</legend>
                     <label for="vDescription">Description: </label>
-                    <input type="text" id="vDescription" name="vDescription">                   
+                    <input type="text" id="vDescription" name="vDescription">
+                    <br>                   
                     <label for="vYear">Year: </label>
-                    <input type="text" id="vYear" name="vYear">                    
+                    <input type="text" id="vYear" name="vYear">
+                    <br>                    
                     <label for="vMilage">Mileage: </label>
                     <input type="text" id="vMilage" name="vMilage">
                     </fieldset>       
@@ -67,11 +69,16 @@
                     <label for="vStillUsing">No</label>
                     </fieldset>
                     <br>
-                    <br>
                     <button class="customButton" type="submit">Add Vehicle</button>
-                    <a href="/vehicledb">Cancel</a>
+                    <a class="cancelbutton" href="/vehicledb">Cancel</a>
                 </form>
             </div>
         </div>
+
+        <!--Footer-->
+        <div class="footer">
+            IS303 Project 3 <br>
+            Alex Wirick, Quinn Karpowitz, Barrett Banfield
+        </div>
     </body>
-    </html>
+</html>
