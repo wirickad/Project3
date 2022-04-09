@@ -1,109 +1,103 @@
-<!--The displayVehicle.ejs file should display all the records from the vehicle table. It should also have a delete button on the left of each record and an edit button on the right of the record.
-Somewhere in this page there should be a button for adding a new record.
-The delete button should route to deleteVehicle and should receive the vehicle_id. This is a post method and should delete the vehicle from the vehicle table. If there is an error, then return a 500 status and the json of the err. Also display the err to the console log. If the delete works then redirect back to ("/displayvehicle") which is renders the displayVehicle.ejs file.
-The edit button should use the editVehicle route and pass the data from the record to the editVehicle.ejs file-->
-
+<!--Alex Wirick, Quinn Karpowitz, Barrett Banfield
+    IS303 W2022 Group Project 3
+    This page is displayed when the user clicks "inventory" from the top nav. Information is passed in through a get
+    and the vehicles are sorted by their pkey (vehicle_id). To the left of each object is a delete function which
+    removes the object from the database. To the right is an edit function to modify the object information in the DB-->
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
-    <title>Vehicle Inventory</title>
-</head>
-<body>
-
-    <!--Header-->
-    <div class="header">
-        <h1>My Inventory</h1>
-    </div>
-
-    <!--Top Nav-->
-    <div class="topnav">
-
-        <!--Nav Item-->
-        <div class="topnav item" href="/addVehicle">
-            <a href="/addVehicle">Add Vehicle</a>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="styles.css">
+        <title>Vehicle Inventory</title>
+    </head>
+    <body>
+        <!--Header-->
+        <div class="header">
+            <h1>My Inventory</h1>
         </div>
-
-        <!--Nav Item-->
-        <div class="topnav item" href="/addVehicle">
-            <a href="/addVehicle">Add Item</a>
+        <!--Top Nav-->
+        <div class="topnav">
+            <!--Nav Item-->
+            <div class="topnav item">
+                <a href="/">Home</a>
+            </div>
+            <!--Nav Item-->
+            <div class="topnav item">
+                <a href="/vehicledb">Inventory</a>
+            </div>
+            <!--Nav Item-->
+            <div class="topnav item">
+                <a href="/addVehicle">Add Vehicle</a>
+            </div>
         </div>
-
-        <!--Nav Item-->
-        <div class="topnav item">
-            <a href="/addVehicle">Add Item</a>
-        </div>
-
-    </div>
-
-    <div class="flex-container">
-        <!--Left Column-->
-        <div class="column side">
-            Left Column
-        </div>
-    
-
         <!--Middle Column-->
-        <div class="column middle">
-            Middle Column <br>
-            <table class="customTable">
-                <th>Delete</th><th>Vehicle ID</th><th>Vehicle</th><th>Type</th><th>Year</th><th>Miles</th><th>Still Used?</th><th>Edit</th>
-                <% for(let i=0;i<myInventory.length;i++) { %>
-                    <tr>
-                        <td>
-                            <a href="/deleteVehicle/<%=myInventory[i].vehicle_id%>"><img class="icon" src="trash.png"></img></a>
-                        </td>
-                        <td>
-                            <%= myInventory[i].vehicle_id %>
-                        </td>
-                        <td>
-                            <%= myInventory[i].vDescription %>
-                        </td>
-                        <td>
-                            <%= myInventory[i].vType %>
-                        </td>
-                        <td>
-                            <%= myInventory[i].vYear %>
-                        </td>
-                        <td>
-                            <%= myInventory[i].vMilage %>
-                        </td>
-                        <td>
-                            <%= myInventory[i].vStillUsing %>
-                        </td>
-                        <td>
-                            <a href="/editVehicle/<%=myInventory[i].vehicle_id%>"><img class="icon" src="pencil.png"></img></a>
-                        </td>
-                        <% } %>
-                    </tr>
-                <br>
-            </table>
+        <div class="flex-container main">
+            <div class="column" >
+                <h3 class="subhead">Vehicles</h3> 
+                <p style="font-size: medium; padding: 0px; text-align: center; margin: 0px;">Here is a list of current vehicles. From this menu,<br>
+                    you can edit vehicle details or remove a vehicle from your inventory
+                </p>
+                <table class="customTable">
+                    <th>Delete</th><th>Vehicle ID</th><th>Vehicle</th><th>Type</th><th>Year</th><th>Miles</th><th>Still Used?</th><th>Edit</th>
+                    <% for(let i=0;i<myInventory.length;i++) { %>
+                        <tr>
+                            <td>
+                                <a onclick="delVeh('<%=myInventory[i].vehicle_id%>')" href="#"><img class="icon" src="trash.png"></img></a>
+                            </td>
+                            <td>
+                                <%= myInventory[i].vehicle_id %>
+                            </td>
+                            <td>
+                                <%= myInventory[i].vDescription %>
+                            </td>
+                            <td>
+                                <%= myInventory[i].vType %>
+                            </td>
+                            <td>
+                                <%= myInventory[i].vYear %>
+                            </td>
+                            <td>
+                                <%= myInventory[i].vMilage %>
+                            </td>
+                            <td>
+                                <%= myInventory[i].vStillUsing %>
+                            </td>
+                            <td>
+                                <a onclick="edtVeh('<%=myInventory[i].vehicle_id%>','<%=myInventory[i].vType%>')" href="#"><img class="icon" src="pencil.png"></img></a>
+                            </td>
+                            <% } %>
+                        </tr>
+                    <br>
+                </table>
+            </div>
         </div>
-
-        <!--Right Column-->
-        <div class="column side">
-            Right Column
+        <!--Footer-->
+        <div class="footer">
+            IS303 Project 3 <br>
+            Alex Wirick, Quinn Karpowitz, Barrett Banfield
         </div>
-    </div>
-    <!--Footer-->
-    <div>
-
-    </div>
-    <script>
-        function edtVeh(vehicle_id) {
-            window.location.assign("/editVehicle/" + vehicle_id);
-        }
-
-        function delVeh(vehicle_id) {
-            var ok = confirm("Are you sure?");
-            if (ok == true) {
-                window.location.assign("/deleteVehicle/" + vehicle_id);
+        <script>
+            function delVeh(vehicle_id) {
+                var ok = confirm("Are you sure?");
+                if (ok == true) {
+                    window.location.assign("/deleteVehicle/" + vehicle_id);
+                }
+                else {
+                    alert("Cancelled");
+                    window.location.assign("/vehicledb");
+                }
+            } 
+            function edtVeh(vehicle_id,vType) {
+                if (vType !== "B") {
+                    window.location.assign("/editVehicle/" + vehicle_id);   
+                }
+                else {
+                    alert("Bike cannot be edited");
+                    window.location.assign("/vehicledb");
+                }
             }
-        }
-        
-    </script>
-</body>
+        </script>
+    </body>
 </html>

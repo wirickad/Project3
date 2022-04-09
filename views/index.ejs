@@ -1,14 +1,59 @@
-<!--This page should have some means of displaying the "displayVehicle.ejs" page 
-    (i.e. button, menu item, image, etc.).-->
+<!--Alex Wirick, Quinn Karpowitz, Barrett Banfield
+    IS303 W2022 Group Project 3
+    This is the default page that is rendered when the user accesses the website. It contains basic information
+    about the site and contains the navigation links to move throughout the site-->
+
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h1>Hello World</h1>
-</body>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="styles.css">
+        <title>Vehicle Management System</title>
+    </head>
+    <body>
+
+        <!--Header-->
+        <div class="header">
+            <h1>Vehicle Management System</h1>
+        </div>
+
+        <!--Top Nav-->
+        <div class="topnav">
+            <!--Nav Item-->
+            <div class="topnav item">
+                <a href="/">Home</a>
+            </div>
+            <!--Nav Item-->
+            <div class="topnav item">
+                <a href="/vehicledb">Inventory</a>
+            </div>
+                <!--Nav Item-->
+                <div class="topnav item">
+                <a href="/addVehicle">Add Vehicle</a>
+            </div>
+        </div>
+
+        <!--Main Content-->
+        <div class="flex-container">
+            <div class="column">
+                <h2 class="subhead">Welcome to CRUD Auto Management</h2>
+                <h3 class="subhead">The leaders in all things CRUD!</h3>
+                <p class="subhead">This is a CRUD application designed for car dealerships. Specifically,
+                    <br>it has been made to manage vehicle inventory. The application allows users
+                    <br>to view inventory, edit inventory, and add/remove vehicles from the inventory.
+                </p>
+                <br><br>
+                <p class="subhead" style="font-size: medium;">
+                    To get started, select one of the options from the menu above (i.e "Inventory" or "Add Vehicle")
+                </p>
+            </div>
+        </div>
+        <!--Footer-->
+        <div class="footer">
+            IS303 Project 3 <br>
+            Alex Wirick, Quinn Karpowitz, Barrett Banfield
+        </div>
+    </body>
 </html>
