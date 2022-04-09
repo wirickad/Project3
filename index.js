@@ -1,6 +1,8 @@
-// Group Project 3
-// IS 303 - Winter 2022
-// Alex Wirick, Barrett Banfield, Quinn Karpowitz
+/*Group Project 3
+IS 303 - Winter 2022
+Alex Wirick, Barrett Banfield, Quinn Karpowitz
+This is a CRUD application designed to manage vehicle inventory for a car dealership. 
+Users are able to see the vehicles in the connected DB and edit/delete/add vehicles to the DB*/
 
 const listenPort = process.env.PORT || 3000; //use port 3000
 
@@ -27,7 +29,7 @@ let knex = require("knex")({
         host : 'localhost',
         server : 'PostgreSQL 13',
         user : 'postgres',
-        password : 'password',
+        password : 'R1c0chet',
         database : 'postgres',
         port: 5432
     },
@@ -69,7 +71,7 @@ app.post("/addVehicle", (req,res) => {
 });
 
 //Route for deleting vehicles from db
-app.get("/deleteVehicle/:vehicle_id", (req,res) => {      
+app.get("/deleteVehicle/:vehicle_id", (req,res) => {
     knex('Vehicle').where('vehicle_id', req.params.vehicle_id).del()
     .then ( () =>{
         res.redirect("/vehicledb");
