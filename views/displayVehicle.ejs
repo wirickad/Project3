@@ -1,4 +1,8 @@
-
+<!--Alex Wirick, Quinn Karpowitz, Barrett Banfield
+    IS303 W2022 Group Project 3
+    This page is displayed when the user clicks "inventory" from the top nav. Information is passed in through a get
+    and the vehicles are sorted by their pkey (vehicle_id). To the left of each object is a delete function which
+    removes the object from the database. To the right is an edit function to modify the object information in the DB-->
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -9,42 +13,38 @@
         <title>Vehicle Inventory</title>
     </head>
     <body>
-
         <!--Header-->
         <div class="header">
             <h1>My Inventory</h1>
         </div>
-
         <!--Top Nav-->
         <div class="topnav">
-
             <!--Nav Item-->
             <div class="topnav item">
                 <a href="/">Home</a>
             </div>
-        
             <!--Nav Item-->
             <div class="topnav item">
                 <a href="/vehicledb">Inventory</a>
             </div>
-
             <!--Nav Item-->
             <div class="topnav item">
                 <a href="/addVehicle">Add Vehicle</a>
             </div>
-
         </div>
-
         <!--Middle Column-->
         <div class="flex-container main">
-            <div class="column">
+            <div class="column" >
                 <h3 class="subhead">Vehicles</h3> 
+                <p style="font-size: medium; padding: 0px; text-align: center; margin: 0px;">Here is a list of current vehicles. From this menu,<br>
+                    you can edit vehicle details or remove a vehicle from your inventory
+                </p>
                 <table class="customTable">
                     <th>Delete</th><th>Vehicle ID</th><th>Vehicle</th><th>Type</th><th>Year</th><th>Miles</th><th>Still Used?</th><th>Edit</th>
                     <% for(let i=0;i<myInventory.length;i++) { %>
                         <tr>
                             <td>
-                                <a href="/deleteVehicle/<%=myInventory[i].vehicle_id%>"><img class="icon" src="trash.png"></img></a>
+                                <a onclick="delVeh('<%=myInventory[i].vehicle_id%>')" href="#"><img class="icon" src="trash.png"></img></a>
                             </td>
                             <td>
                                 <%= myInventory[i].vehicle_id %>
@@ -79,13 +79,14 @@
             Alex Wirick, Quinn Karpowitz, Barrett Banfield
         </div>
         <script>
-            function edtVeh(vehicle_id) {
-                window.location.assign("/editVehicle/" + vehicle_id);
-            }
             function delVeh(vehicle_id) {
                 var ok = confirm("Are you sure?");
                 if (ok == true) {
                     window.location.assign("/deleteVehicle/" + vehicle_id);
+                }
+                else {
+                    alert("Cancelled");
+                    window.location.assign("/vehicledb");
                 }
             } 
         </script>

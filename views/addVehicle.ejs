@@ -1,4 +1,8 @@
-
+<!--Alex Wirick, Quinn Karpowitz, Barrett Banfield
+    IS303 W2022 Group Project 3
+    When the user clicks "add vehicle" from the top navigation, this page will be displayed.
+    The use enters the new vehicle's information here and then the page is submitted using a post
+    and the information is entered into the database-->
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -9,59 +13,50 @@
         <title>Add Vehicle</title>
     </head>
     <body>
-
         <!--Header-->
         <div class="header">
-            <h1>Add Vehicle</h1>
+            <h1>Add a Vehicle to Inventory</h1>
         </div>
-
         <!--Top Nav-->
         <div class="topnav">
-            
             <!--Nav Item-->
             <div class="topnav item">
                 <a href="/">Home</a>
             </div>
-
             <!--Nav Item-->
             <div class="topnav item">
                 <a href="/vehicledb">Inventory</a>
             </div>
-
                 <!--Nav Item-->
                 <div class="topnav item">
                 <a href="/addVehicle">Add Vehicle</a>
             </div>
-
         </div>
-
         <!--Main Content-->
         <div class="flex-container main">  
             <div class="column">
-                <h3 class="subhead">Add a Vehicle</h3>
-                <br>
+                <h3 class="subhead">New Vehicle Information</h3>
                 <form method="post" action="addVehicle" class="customForm">           
                     <fieldset><legend>Model:</legend>
                     <label for="vDescription">Description: </label>
-                    <input type="text" id="vDescription" name="vDescription">
+                    <input required type="text" id="vDescription" name="vDescription">
                     <br>                   
                     <label for="vYear">Year: </label>
-                    <input type="text" id="vYear" name="vYear">
+                    <input required type="number" id="vYear" name="vYear">
                     <br>                    
                     <label for="vMilage">Mileage: </label>
-                    <input type="text" id="vMilage" name="vMilage">
+                    <input required type="number" id="vMilage" name="vMilage">
                     </fieldset>       
                     <fieldset class=""><legend>Type: </legend>
                     <label for="vType">Car</label>
-                    <input type="radio" id="vType" name="vType" value="C">                    
+                    <input required type="radio" id="vType" name="vType" value="C">                    
                     <label for="vType">Truck</label>
-                    <input type="radio" id="vType" name="vType" value="T">
+                    <input required type="radio" id="vType" name="vType" value="T">
                     <label for="vType">Bike</label>
-                    <input type="radio" id="vType" name="vType" value="B">          
+                    <input required type="radio" id="vType" name="vType" value="B">          
                     <label for="vType">Motorcycle</label>
-                    <input type="radio" id="vType" name="vType" value="M">
+                    <input required type="radio" id="vType" name="vType" value="M">
                     </fieldset>
-        
                     <fieldset><legend>Still in Use?</legend>
                     <input type="radio" id="vStillUsing" name="vStillUsing" value="Y">
                     <label for="vStillUsing">Yes</label>
@@ -74,7 +69,7 @@
                 </form>
             </div>
         </div>
-
+        <br>
         <!--Footer-->
         <div class="footer">
             IS303 Project 3 <br>

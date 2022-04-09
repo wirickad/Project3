@@ -1,4 +1,7 @@
- 
+ <!--Alex Wirick, Quinn Karpowitz, Barrett Banfield
+    IS303 W2022 Group Project 3
+    This page is displayed when the user clicks the edit icon next to the desired object in the inventory(displayVehicle).
+    Here, the user can modify the desired object's information and when they click save it is posted to the DB.-->
  <!DOCTYPE html>
  <html lang="en">
     <head>
@@ -8,37 +11,31 @@
         <link href="/styles.css" rel="stylesheet" type="text/css">
         <title>Update Vehicle</title>
     </head>
-
     <body>
         <!--Header-->
         <div class="header">
             <h1>Edit Vehicle</h1>
         </div>
-
         <!--Top Nav-->
         <div class="topnav">
-
             <!--Nav Item-->
             <div class="topnav item">
                 <a href="/">Home</a>
             </div>
-        
             <!--Nav Item-->
             <div class="topnav item">
                 <a href="/vehicledb">Inventory</a>
             </div>
-
             <!--Nav Item-->
             <div class="topnav item">
                 <a href="/addVehicle">Add Vehicle</a>
             </div>
-
         </div>
         <div class="flex-container">
             <div class="column">
                 <form method="POST" action="/editVehicle" class="customForm">
                     <fieldset>
-                        <legend>Edit a Vehicle: </legend>
+                        <legend>Edit Vehicle: </legend>
                         <input type="hidden" id="vehicle_id" name="vehicle_id" value="<%= myInventory[0].vehicle_id %>">
                         <label for="vDescription">Vehicle Description: </label>
                         <input type="text" id="vDescription" name="vDescription" value="<%= myInventory[0].vDescription %>">
@@ -75,6 +72,7 @@
                 </form>
             </div>
         </div>
+        <br><br>
         <!--Footer-->
         <div class="footer">
             IS303 Project 3 <br>
