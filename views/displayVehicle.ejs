@@ -65,7 +65,7 @@
                                 <%= myInventory[i].vStillUsing %>
                             </td>
                             <td>
-                                <a href="/editVehicle/<%=myInventory[i].vehicle_id%>"><img class="icon" src="pencil.png"></img></a>
+                                <a onclick="edtVeh('<%=myInventory[i].vehicle_id%>','<%=myInventory[i].vType%>')" href="#"><img class="icon" src="pencil.png"></img></a>
                             </td>
                             <% } %>
                         </tr>
@@ -89,6 +89,15 @@
                     window.location.assign("/vehicledb");
                 }
             } 
+            function edtVeh(vehicle_id,vType) {
+                if (vType !== "B") {
+                    window.location.assign("/editVehicle/" + vehicle_id);   
+                }
+                else {
+                    alert("Bike cannot be edited");
+                    window.location.assign("/vehicledb");
+                }
+            }
         </script>
     </body>
 </html>

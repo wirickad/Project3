@@ -8,6 +8,8 @@ const listenPort = process.env.PORT || 3000; //use port 3000
 
 //require modules
 let express = require("express");
+
+// const { Server } = require("http");
 let path = require("path");
 let app = express(); //set app equal to express
 
@@ -26,14 +28,16 @@ app.listen(listenPort, function()
 let knex = require("knex")({
     client: "pg",
     connection: {
-        host : 'localhost',
-        server : 'PostgreSQL 13',
-        user : 'postgres',
-        password : 'R1c0chet',
-        database : 'postgres',
-        port: 5432
+        host : 'dpg-c97mlej97ej8dpgdpfm0-a.oregon-postgres.render.com',
+        user : 'project3_user',
+        password : 'BBnuRPL9b6PHO6UoY0eQw1YMdc8kz1u0',
+        database : 'project3',
+        port: 5432,
+        ssl: true
     },
-    useNullAsDefault: true
+    useNullAsDefault: true,
+    pool: { min: 0, max: 7 }
+    
 });  
 
 //Route to index
@@ -71,7 +75,7 @@ app.post("/addVehicle", (req,res) => {
 });
 
 //Route for deleting vehicles from db
-app.get("/deleteVehicle/:vehicle_id", (req,res) => {
+app.get("/deleteVehicle/:vehicle_id", (req,res) => {      
     knex('Vehicle').where('vehicle_id', req.params.vehicle_id).del()
     .then ( () =>{
         res.redirect("/vehicledb");
